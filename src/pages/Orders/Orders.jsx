@@ -1,9 +1,11 @@
 // import React from 'react'
-import
+import './Orders.css'
 
 const Orders = () => {
   return (
-    <div>Orders</div>
+    <div>
+    
+    </div>
   )
 }
 
