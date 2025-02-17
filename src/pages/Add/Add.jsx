@@ -1,5 +1,5 @@
 // import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { assets } from '../../assets/assets'
 import './Add.css'
 
@@ -19,14 +19,18 @@ const onChangeHandler = (event) => {
   setData(data=>({...data,[name]:value}))
 }
 
-useEffect(()=> {
-  console.log(data);
-  
-},[data])
+const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    const formData = new formData();
+    formData.append("name",data.name)
+    formData.append("description",data.description)
+    formData.append("price",data.price)
+    formData.append("category",data.category)
+}
 
   return (
     <div className='add'>
-      <form className='flex-col' >
+      <form className='flex-col' onSubmit={onSubmitHandler}>
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
